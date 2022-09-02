@@ -3,21 +3,17 @@
     {
       "id": "performPaymentInteraction",
       "virtualPath": "./dist/manifest.all.js",
-      "actionId": "embedded.commerce.payments.action.performPaymentInteraction"
+      "actionId": 29
     },
     {
       "id": "beforeAction",
       "virtualPath": "./dist/manifest.all.js",
-      "actionId": "embedded.commerce.payments.action.before"
+      "actionId": 28
     },
     {
       "id": "afterFunction",
       "virtualPath": "./dist/manifest.all.js",
-      "actionId": "embedded.commerce.payments.action.after"
-    },
-    {
-      "id": "default",
-      "virtualPath": "./dist/paymentsBefore.all.js"
+      "actionId": 27
     }
   ]
 }

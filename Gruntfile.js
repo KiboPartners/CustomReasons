@@ -5,21 +5,29 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
     grunt.initConfig({
         mozuconfig: grunt.file.readJSON('./mozu.config.json'),
-        jshint: {
-            'normal': ['./assets/src/**/*.js'],
-            'continuous': {
-                'options': { 'force': true },
-                'src': '<%= jshint.normal %>'
+        ts: {
+            default: {
+              tsconfig: {
+                passThrough: true,
+                tsconfig: './'
+              }
             }
         },
+        eslint: {
+          options: {
+            overrideConfigFile: './.eslintrc.js',
+          },
+          target: ['src/**']
+	},
         browserify: {
             'all': {
                 'files': [{
                         'expand': true,
-                        'cwd': 'assets/src/',
-                        'src': ['**/*.manifest.js'],
+                        'cwd': 'assets/build/',
+                        'src': ['**/*.js'],
                         'dest': 'assets/dist/',
                         'ext': '.all.js',
+                        'sourceType': 'module',
                         'extDot': 'last'
                     }],
                 'options': {
@@ -73,9 +81,10 @@ module.exports = function (grunt) {
         watch: {
             'options': { 'spawn': false },
             'src': {
-                'files': '<%= jshint.normal %>',
+                'files': ['./src/**/*.ts'],
                 'tasks': [
-                    'jshint:continuous',
+                    'eslint',
+                    'ts',
                     'browserify:all',
                     'manifest'
                 ]
@@ -83,14 +92,21 @@ module.exports = function (grunt) {
             'sync': {
                 'files': ['assets/**/*'],
                 'tasks': [
+                    'eslint',
+                    'ts',
                     'mozusync:upload',
                     'mozusync:del'
                 ]
             }
         }
     });
+  
+    grunt.loadNpmTasks("grunt-ts");
+    grunt.registerTask('tsbuild', ['ts']);
+  
     grunt.registerTask('build', [
-        'jshint:normal',
+        'eslint',
+        'ts',
         'browserify:all',
         'manifest'
     ]);
@@ -102,6 +118,7 @@ module.exports = function (grunt) {
         'mozusync:wipe',
         'mozusync:upload'
     ]);
+    grunt.registerTask('lint', ['eslint']);
     grunt.registerTask('cont', ['watch']);
     grunt.registerTask('c', ['watch']);
     grunt.registerTask('w', ['watch']);

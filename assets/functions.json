@@ -1,19 +1,23 @@
 {
   "exports": [
     {
-      "id": "embedded.commerce.payments.action.performPaymentInteraction",
-      "virtualPath": "./dist/commerce.payments.manifest.all.js",
+      "id": "performPaymentInteraction",
+      "virtualPath": "./dist/manifest.all.js",
       "actionId": "embedded.commerce.payments.action.performPaymentInteraction"
     },
     {
-      "id": "embedded.commerce.payments.action.before",
-      "virtualPath": "./dist/commerce.payments.manifest.all.js",
+      "id": "beforeAction",
+      "virtualPath": "./dist/manifest.all.js",
       "actionId": "embedded.commerce.payments.action.before"
     },
     {
-      "id": "embedded.commerce.payments.action.after",
-      "virtualPath": "./dist/commerce.payments.manifest.all.js",
+      "id": "afterFunction",
+      "virtualPath": "./dist/manifest.all.js",
       "actionId": "embedded.commerce.payments.action.after"
+    },
+    {
+      "id": "default",
+      "virtualPath": "./dist/paymentsBefore.all.js"
     }
   ]
 }

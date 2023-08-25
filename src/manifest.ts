@@ -1,24 +1,42 @@
-import paymentsBefore from "./paymentsBefore";
-
 import { ActionId, createArcFunction } from "./arcTypes/index";
 
-export const performPaymentInteraction = createArcFunction(
-  ActionId["embedded.commerce.payments.action.performPaymentInteraction"],
+export const returnReasonsAfter = createArcFunction(
+  ActionId["embedded.commerce.return.retrieveReasons"],
   function (context: any, callback: (errorMessage?: string) => void) {
-    console.log("ts PerformPaymentInteraction");
+    console.log("ts returnReasonsAfter");
+    context.exec.setReasonList(context.get.ReasonList())
     callback();
   }
 );
 
-export const beforeAction = createArcFunction(
-  ActionId["embedded.commerce.payments.action.before"],
-  paymentsBefore
+export const cancellationReasonsAfter = createArcFunction(
+  ActionId["http.commerce.orders.cancellationReasons.after"],
+  function (context: any, callback: (errorMessage?: string) => void) {
+    console.log("ts cancellationReasonsAfter");
+    callback();
+  }
 );
 
-export const afterFunction = createArcFunction(
-  ActionId["embedded.commerce.payments.action.after"],
+export const subscriptionsReasonsAfter = createArcFunction(
+  ActionId["http.commerce.subscriptions.reasons.after"],
   function (context: any, callback: (errorMessage?: string) => void) {
-    console.log("ts PaymentAfter2");
+    console.log("ts subscriptionsReasonsAfter");
+    callback();
+  }
+);
+
+export const refundReasonsAfter = createArcFunction(
+  ActionId["http.commerce.orders.refundReasons.after"],
+  function (context: any, callback: (errorMessage?: string) => void) {
+    console.log("ts refundReasonsAfter");
+    callback();
+  }
+);
+
+export const platformApplicationsInstall = createArcFunction(
+  ActionId["embedded.platform.applications.install"],
+  function (context: any, callback: (errorMessage?: string) => void) {
+    console.log("ts installing");
     callback();
   }
 );

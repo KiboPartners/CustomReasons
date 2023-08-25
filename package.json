@@ -7,6 +7,7 @@
     "prettier:format": "prettier --write ."
   },
   "devDependencies": {
+    "@types/node": "^20.5.6",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "grunt": "^1.5.3",
     "grunt-browserify": "^6.0.0",
@@ -20,9 +21,11 @@
     "time-grunt": "^2.0.0"
   },
   "dependencies": {
+    "@kibocommerce/rest-sdk": "0.0.12",
     "@typescript-eslint/parser": "^5.36.1",
     "eslint": "^8.23.0",
     "grunt-ts": "^6.0.0-beta.22",
+    "mozu-node-sdk": "^2.15.13",
     "prettier": "^2.7.1",
     "typescript": "^4.8.2"
   }

@@ -1,19 +1,29 @@
 {
   "exports": [
     {
-      "id": "performPaymentInteraction",
+      "id": "embedded.commerce.return.retrieveReasons",
       "virtualPath": "./dist/manifest.all.js",
-      "actionId": 29
+      "actionId": "embedded.commerce.return.retrieveReasons"
     },
     {
-      "id": "beforeAction",
+      "id": "http.commerce.orders.cancellationReasons.after",
       "virtualPath": "./dist/manifest.all.js",
-      "actionId": 28
+      "actionId": "http.commerce.orders.cancellationReasons.after"
     },
     {
-      "id": "afterFunction",
+      "id": "http.commerce.subscriptions.reasons.after",
       "virtualPath": "./dist/manifest.all.js",
-      "actionId": 27
+      "actionId": "http.commerce.subscriptions.reasons.after"
+    },
+    {
+      "id": "http.commerce.orders.refundReasons.after",
+      "virtualPath": "./dist/manifest.all.js",
+      "actionId": "http.commerce.orders.refundReasons.after"
+    },
+    {
+      "id": "embedded.platform.applications.install",
+      "virtualPath": "./dist/manifest.all.js",
+      "actionId": "embedded.platform.applications.install"
     }
   ]
 }

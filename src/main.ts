@@ -1,6 +1,6 @@
 import { ActionId, createArcFunction } from "./arcTypes/index";
 
-export const returnReasonsAfter = createArcFunction(
+const returnReasonsAfter = createArcFunction(
   ActionId["embedded.commerce.return.retrieveReasons"],
   function (context: any, callback: (errorMessage?: string) => void) {
     console.log("ts returnReasonsAfter");
@@ -9,7 +9,7 @@ export const returnReasonsAfter = createArcFunction(
   }
 );
 
-export const cancellationReasonsAfter = createArcFunction(
+const cancellationReasonsAfter = createArcFunction(
   ActionId["http.commerce.orders.cancellationReasons.after"],
   function (context: any, callback: (errorMessage?: string) => void) {
     console.log("ts cancellationReasonsAfter");
@@ -17,7 +17,7 @@ export const cancellationReasonsAfter = createArcFunction(
   }
 );
 
-export const subscriptionsReasonsAfter = createArcFunction(
+const subscriptionsReasonsAfter = createArcFunction(
   ActionId["http.commerce.subscriptions.reasons.after"],
   function (context: any, callback: (errorMessage?: string) => void) {
     console.log("ts subscriptionsReasonsAfter");
@@ -25,7 +25,7 @@ export const subscriptionsReasonsAfter = createArcFunction(
   }
 );
 
-export const refundReasonsAfter = createArcFunction(
+const refundReasonsAfter = createArcFunction(
   ActionId["http.commerce.orders.refundReasons.after"],
   function (context: any, callback: (errorMessage?: string) => void) {
     console.log("ts refundReasonsAfter");
@@ -33,10 +33,18 @@ export const refundReasonsAfter = createArcFunction(
   }
 );
 
-export const platformApplicationsInstall = createArcFunction(
+const platformApplicationsInstall = createArcFunction(
   ActionId["embedded.platform.applications.install"],
   function (context: any, callback: (errorMessage?: string) => void) {
     console.log("ts installing");
     callback();
   }
 );
+
+export default {
+  "embedded.commerce.return.retrieveReasons": returnReasonsAfter,
+  "http.commerce.orders.cancellationReasons.after": cancellationReasonsAfter,
+  "http.commerce.subscriptions.reasons.after": subscriptionsReasonsAfter,
+  "http.commerce.orders.refundReasons.after": refundReasonsAfter,
+  "embedded.platform.applications.install": platformApplicationsInstall,
+}

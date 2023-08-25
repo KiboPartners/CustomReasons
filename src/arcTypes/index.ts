@@ -10,7 +10,7 @@ export enum ActionId {
 }
 
 export interface ArcFunction {
-  actionName: ActionId;
+  actionName: string;
   customFunction: (
     context: any,
     callback: (errorMessage?: string) => void
@@ -24,5 +24,5 @@ export function createArcFunction(
     callback: (errorMessage?: string) => void
   ) => void
 ): ArcFunction {
-  return { actionName: actionName, customFunction: customFunction };
+  return { actionName: ActionId[actionName], customFunction: customFunction };
 }

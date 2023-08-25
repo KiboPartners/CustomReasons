@@ -5,14 +5,13 @@ import { RefundReasonCollection } from '@kibocommerce/rest-sdk/clients/Commerce/
 import { CancelReasonCollection } from '@kibocommerce/rest-sdk/clients/Commerce/models/CancelReasonCollection'
 import { SubscriptionReasonCollection } from '@kibocommerce/rest-sdk/clients//Subscription/models/SubscriptionReasonCollection'
 
-/* eslint-disable */
 const Client = require('mozu-node-sdk/client')
 
 const returnReasonsAfter = createArcFunction(
   ActionId["embedded.commerce.return.retrieveReasons"],
   function (context: any, callback: (errorMessage?: string) => void) {
     const items = context.configuration.items
-    if (items && Array.isArray(items) && (items as Array<String>).every(item => typeof item == 'string')) {
+    if (items && Array.isArray(items) && (items as Array<string>).every(item => typeof item == 'string')) {
       context.exec.setReasonList(context.configuration.items)
     } else {
       context.exec.setReasonList(context.get.reasonList())
@@ -76,7 +75,7 @@ export interface CustomFunctionsEntity {
 
 
 const constants = Client.constants;
-let myClientFactory = Client.sub({
+const myClientFactory = Client.sub({
   getArcConfig: Client.method({
     method: constants.verbs.GET,
     url: '{+tenantPod}api/platform/extensions'

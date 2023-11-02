@@ -9,6 +9,38 @@ export enum ActionId {
   "embedded.platform.applications.install",
 }
 
+/**
+ * Categories used to determine list of order/order line item cancellation reason. Line items occur on shipment so request includes shipping method.
+ */
+
+export enum OrderCancellationReasonCategory {
+  'SHOPPER',
+  'TRANSFER',
+  'DELIVERY',
+  'STH',
+  'FXCB',
+  'BOPIS',
+  'CSR',
+  'items',
+}
+
+export interface OrderCancellationItem {
+  reasonCode: string
+  name: string
+  needsMoreInfo: boolean
+}
+
+export interface OrderCancellationItemsConfig {
+  items: OrderCancellationItem[]
+  SHOPPER: OrderCancellationItem[]
+  TRANSFER: OrderCancellationItem[]
+  DELIVERY: OrderCancellationItem[]
+  STH: OrderCancellationItem[]
+  FXCB: OrderCancellationItem[]
+  BOPIS: OrderCancellationItem[]
+  CSR: OrderCancellationItem[]
+}
+
 export interface ArcFunction {
   actionName: string;
   customFunction: (

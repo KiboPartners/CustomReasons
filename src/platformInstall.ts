@@ -120,7 +120,14 @@ export const platformApplicationsInstallImplementation = async (context: any, ca
                   functionId: ORDER_CANCELLATION_REASONS_ACTION,
                   enabled: true,
                   configuration: {
-                    items: cancellationReasons.items
+                    items: cancellationReasons.items,
+                    SHOPPER: [],
+                    TRANSFER: [],
+                    DELIVERY: [],
+                    STH: [],
+                    FXCB: [],
+                    BOPIS: [],
+                    CSR: [],
                   }
                 }
               ]

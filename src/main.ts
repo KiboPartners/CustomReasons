@@ -1,6 +1,6 @@
 import { ActionId, createArcFunction, OrderCancellationReasonCategory } from "./arcTypes/index";
 import { platformApplicationsInstallImplementation } from "./platformInstall";
-import getReasonFromConfigByCategory from './utils'
+import { getReasonFromConfigByCategory, getCategoryFromRequest } from './utils'
 
 const returnReasonsAfter = createArcFunction(
   ActionId["embedded.commerce.return.retrieveReasons"],
@@ -19,11 +19,7 @@ const cancellationReasonsAfter = createArcFunction(
   ActionId["http.commerce.orders.cancellationReasons.after"],
   function (context: any, callback: (errorMessage?: string) => void) {
     console.log("ts cancellationReasonsAfter");
-    /**
-     * Leaving 'items' as default from original implementation.
-     * This will be returned list for canceling order and any category with no reasons configured.
-     */
-    const category: OrderCancellationReasonCategory = context?.request?.params?.category || 'items'
+    const category: OrderCancellationReasonCategory = getCategoryFromRequest(context)
     if (context.configuration.items) {
       context.response.body.items = getReasonFromConfigByCategory(category, context.configuration)
     }

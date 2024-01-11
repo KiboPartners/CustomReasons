@@ -121,13 +121,6 @@ export const platformApplicationsInstallImplementation = async (context: any, ca
                   enabled: true,
                   configuration: {
                     items: cancellationReasons.items,
-                    SHOPPER: [],
-                    TRANSFER: [],
-                    DELIVERY: [],
-                    STH: [],
-                    FXCB: [],
-                    BOPIS: [],
-                    CSR: [],
                   }
                 }
               ]

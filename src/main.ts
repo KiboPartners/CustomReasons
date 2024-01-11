@@ -1,5 +1,6 @@
-import { ActionId, createArcFunction } from "./arcTypes/index";
+import { ActionId, createArcFunction, OrderCancellationReasonCategory } from "./arcTypes/index";
 import { platformApplicationsInstallImplementation } from "./platformInstall";
+import { getReasonFromConfigByCategory, getCategoryFromRequest } from './utils'
 
 const returnReasonsAfter = createArcFunction(
   ActionId["embedded.commerce.return.retrieveReasons"],
@@ -18,8 +19,9 @@ const cancellationReasonsAfter = createArcFunction(
   ActionId["http.commerce.orders.cancellationReasons.after"],
   function (context: any, callback: (errorMessage?: string) => void) {
     console.log("ts cancellationReasonsAfter");
+    const category: OrderCancellationReasonCategory = getCategoryFromRequest(context)
     if (context.configuration.items) {
-      context.response.body.items = context.configuration.items
+      context.response.body.items = getReasonFromConfigByCategory(category, context.configuration)
     }
     callback();
   }

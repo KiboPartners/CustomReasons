@@ -28,13 +28,6 @@ export const getReasonFromConfigByCategory  = (
 export const getCategoryFromRequest = (context: any): OrderCancellationReasonCategory =>  {
   const ADMIN_PATH = '/commerce/orders/cancel/reasons'
   const FULFILLER_PATH = '/api/commerce/orders/cancel/reasons'
-
-  console.log(`URL - ${context.request.url}`)
-  console.log(`PATH - ${context.request.path}`)
-  console.log(`PARAMS - ${JSON.stringify(context.request.params)}`)
-  console.log(`href - ${context.request.href}`)
-  //TODO:
-  //can we find a way to find difference between order vs fulfiller and ship type
   const path = context?.request?.path
   const params = context?.request?.params
 

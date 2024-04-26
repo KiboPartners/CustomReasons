@@ -31,6 +31,8 @@ export const getCategoryFromRequest = (context: any): OrderCancellationReasonCat
   const path = context?.request?.path
   const params = context?.request?.params
 
+  console.log(JSON.stringify({path: path, params: params}))
+
   try {
     if(params.category) {
       if(path == ADMIN_PATH){

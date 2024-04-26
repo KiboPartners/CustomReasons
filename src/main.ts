@@ -18,7 +18,6 @@ const returnReasonsAfter = createArcFunction(
 const cancellationReasonsAfter = createArcFunction(
   ActionId["http.commerce.orders.cancellationReasons.after"],
   function (context: any, callback: (errorMessage?: string) => void) {
-    console.log("ts cancellationReasonsAfter");
     const category: OrderCancellationReasonCategory = getCategoryFromRequest(context)
     if (context.configuration.items) {
       context.response.body.items = getReasonFromConfigByCategory(category, context.configuration)
@@ -30,7 +29,6 @@ const cancellationReasonsAfter = createArcFunction(
 const subscriptionsReasonsAfter = createArcFunction(
   ActionId["http.commerce.subscriptions.reasons.after"],
   function (context: any, callback: (errorMessage?: string) => void) {
-    console.log("ts subscriptionsReasonsAfter");
     if (context.configuration.items) {
       context.response.body.items = context.configuration.items
     }

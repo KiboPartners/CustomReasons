@@ -15,15 +15,17 @@ export enum ActionId {
 
 export enum OrderCancellationReasonCategory {
   'SHOPPER'='SHOPPER',
-  'TRANSFER'='TRANSFER',
+  'Transfer'='Transfer',
   'DELIVER'='DELIVERY',
   'STH'='STH',
   'FXCB'='FXCB',
   'BOPIS'='BOPIS',
   'CSR'='CSR',
   'SHOPPER_FFUI'='SHOPPER_FFUI',
-  'TRANSFER_FFUI'='TRANSFER_FFUI',
+  'Shopper_FFUI'='Shopper_FFUI',
+  'Transfer_FFUI'='Transfer_FFUI',
   'DELIVERY_FFUI'='DELIVERY_FFUI',
+  'Delivery_FFUI'='Delivery_FFUI',
   'STH_FFUI'='STH_FFUI',
   'FXCB_FFUI'='FXCB_FFUI',
   'BOPIS_FFUI'='BOPIS_FFUI',
@@ -39,15 +41,17 @@ export interface OrderCancellationItem {
 export interface OrderCancellationItemsConfig {
   items: OrderCancellationItem[]
   SHOPPER?: OrderCancellationItem[]
-  TRANSFER?: OrderCancellationItem[]
+  Transfer?: OrderCancellationItem[]
   DELIVERY?: OrderCancellationItem[]
   STH?: OrderCancellationItem[]
   FXCB?: OrderCancellationItem[]
   BOPIS?: OrderCancellationItem[]
   CSR?: OrderCancellationItem[]
   SHOPPER_FFUI?: OrderCancellationItem[]
-  TRANSFER_FFUI?: OrderCancellationItem[]
+  Shopper_FFUI?: OrderCancellationItem[]
+  Transfer_FFUI?: OrderCancellationItem[]
   DELIVERY_FFUI?: OrderCancellationItem[]
+  Delivery_FFUI?: OrderCancellationItem[]
   STH_FFUI?: OrderCancellationItem[]
   FXCB_FFUI?: OrderCancellationItem[]
   BOPIS_FFUI?: OrderCancellationItem[]

@@ -3,5 +3,7 @@ dist/**
 .yo-rc.json
 mozu.config.json
 mozu.config
-assets/
 .tscache/
+assets/**
+!assets/build
+!assets/build/manifest.js

@@ -1,5 +1,5 @@
 {
-  "name": "ThirdPartyKiboPaymentsStarterKit",
+  "name": "CustomReasons",
   "version": "0.1.0",
   "scripts": {
     "test": "grunt test",
